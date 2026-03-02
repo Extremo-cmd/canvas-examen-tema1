@@ -1,73 +1,78 @@
-# Examen Tema 1 - Graficación por Computadora
-
-## 📌 Descripción
-Este proyecto es una aplicación web desarrollada como parte del Examen Tema 1 de la materia **Graficación por Computadora**.  
-La aplicación utiliza la API **Canvas 2D** para dibujar un paisaje mediante programación, tomando como referencia una imagen original.
-
-La aplicación muestra:
-- A la izquierda: el dibujo generado con Canvas
-- A la derecha: la imagen original de referencia
+🎨 Proyecto Canvas 2D – Escenario Inspirado en Valorant
+Estudiante: Moreno Trejo Diego de Jesús 🎮  
+Carrera: Ingeniería en Sistemas Computacionales  
+Materia: Graficación por Computadora – Examen Tema 1  
 
 ---
 
-## 🎯 Objetivo
-Aplicar los conceptos básicos de graficación por computadora utilizando primitivas gráficas como:
-- Rectángulos
-- Círculos
-- Arcos
-- Líneas
+## Enlaces del Proyecto
 
-El dibujo está compuesto por **más de 30 figuras básicas**, organizadas correctamente en el código JavaScript.
+- 📁 Repositorio en GitHub:  
+  https://github.com/Extremo-cmd/canvas-examen-tema1
 
----
-
-## 🛠️ Tecnologías Utilizadas
-- HTML5
-- CSS3
-- JavaScript
-- Canvas 2D API
-- Bootstrap 5
-- Git y GitHub
-- GitHub Pages
+- 🌐 Sitio Web (GitHub Pages):  
+  https://extremo-cmd.github.io/canvas-examen-tema1/
 
 ---
 
-## 🖼️ Funcionalidad de la Aplicación
-- Dibujo de un paisaje utilizando Canvas 2D
-- Uso de múltiples figuras básicas
-- Código JavaScript organizado por funciones
-- Diseño responsivo con Bootstrap
-- Navbar y Footer informativos
-- Favicon personalizado
+## Descripción del Proyecto
+
+Este proyecto consiste en una aplicación web desarrollada con HTML5, CSS3 y JavaScript, que utiliza la **Canvas API** para generar una escena gráfica en 2D inspirada en escenarios de videojuegos modernos.  
+
+El objetivo principal es demostrar el uso correcto del elemento `<canvas>` para el dibujo de figuras geométricas básicas, así como la organización del código y el uso de estilos visuales con un enfoque retro–moderno.
+
+La escena está compuesta por múltiples figuras (líneas, círculos, rectángulos y curvas) generadas completamente por código, sin el uso de imágenes dentro del canvas.
 
 ---
 
-## 🌐 Enlace a GitHub Pages
-🔗 https://extremo-cmd.github.io/canvas-examen-tema1/
+## Tecnologías Utilizadas
+
+- **HTML5**: Estructura base del sitio web.
+- **CSS3**: Estilos visuales con una estética retro y moderna.
+- **JavaScript (Vanilla)**: Lógica de dibujo utilizando la Canvas API.
+- **Bootstrap 5**: Diseño responsivo y estructura visual.
+- **Google Fonts**: Tipografía estilizada para mejorar la presentación.
 
 ---
 
 ## 📂 Estructura del Proyecto
 
-canvas-examen-tema1/
+El proyecto está organizado de la siguiente manera:
+
+/canvas-examen-tema1
 │
-├── assets/
-│ ├── css/
-│ │ └── styles.css
-│ ├── js/
-│ │ └── main.js
-│ └── img/
-│ ├── imagen.jpg
-│ └── favicon.png
+├── index.html # Página principal del proyecto
 │
-├── index.html
-└── README.md
+├── css/
+│ └── styles.css # Estilos del sitio web
+│
+├── js/
+│ └── main.js # Código de dibujo con Canvas API
+│
+└── img/
+└── imagen.png # Imagen de referencia visual
 
 
 ---
 
-## 👤 Datos del Alumno
-- Nombre: Moreno Trejo Diego de Jesus
-- Materia: Graficación
-- Tema: Introducción a la Graficación por Computadora
-- Examen: Tema 1
+## 🎯 Objetivo Académico
+
+- Aplicar conceptos básicos de graficación por computadora.
+- Utilizar la Canvas API para el dibujo de figuras 2D.
+- Implementar al menos 30 figuras geométricas básicas.
+- Organizar correctamente un proyecto web con Git y GitHub.
+- Documentar el proyecto de forma clara y profesional.
+
+---
+
+## 📌 Conclusiones
+
+El desarrollo de este proyecto permitió reforzar los conocimientos sobre la manipulación del elemento canvas mediante JavaScript, así como mejorar la organización de archivos y el control de versiones con GitHub.
+
+Además, se logró comprender la importancia de la planeación visual y el uso de figuras geométricas básicas para la construcción de escenas gráficas complejas sin depender de imágenes externas.
+
+---
+
+✍️ **Autor:**  
+Moreno Trejo Diego de Jesús  
+2026
