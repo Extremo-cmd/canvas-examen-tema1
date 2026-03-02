@@ -37,25 +37,21 @@ La escena está compuesta por múltiples figuras (líneas, círculos, rectángul
 
 ## 📂 Estructura del Proyecto
 
-El proyecto está organizado de la siguiente manera:
+La organización de archivos del proyecto es la siguiente:
 
-/canvas-examen-tema1
+canvas-examen-tema1/
 │
-├── index.html # Página principal del proyecto
-│
-├── css/
-│ └── styles.css # Estilos del sitio web
+├── index.html # Archivo principal del proyecto
 │
 ├── js/
-│ └── main.js # Código de dibujo con Canvas API
+│ └── main.js # Lógica del dibujo en Canvas
 │
 └── img/
-└── imagen.png # Imagen de referencia visual
-
+└── imagen.png # Imagen de referencia
 
 ---
 
-## 🎯 Objetivo Académico
+## Objetivo Académico
 
 - Aplicar conceptos básicos de graficación por computadora.
 - Utilizar la Canvas API para el dibujo de figuras 2D.
@@ -65,7 +61,7 @@ El proyecto está organizado de la siguiente manera:
 
 ---
 
-## 📌 Conclusiones
+## Conclusiones
 
 El desarrollo de este proyecto permitió reforzar los conocimientos sobre la manipulación del elemento canvas mediante JavaScript, así como mejorar la organización de archivos y el control de versiones con GitHub.
 
@@ -73,6 +69,6 @@ Además, se logró comprender la importancia de la planeación visual y el uso d
 
 ---
 
-✍️ **Autor:**  
+**Autor:**  
 Moreno Trejo Diego de Jesús  
 2026
