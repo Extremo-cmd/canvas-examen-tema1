@@ -1,61 +1,99 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// ===============================
+// ======================================
 // FONDO
-// ===============================
+// ======================================
 function dibujarCielo() {
   ctx.fillStyle = "#87CEEB";
   ctx.fillRect(0, 0, canvas.width, 200);
 }
 
-function dibujarAgua() {
-  ctx.fillStyle = "#9ad0ec";
-  ctx.fillRect(0, 200, canvas.width, 80);
+function dibujarAguaFondo() {
+  ctx.fillStyle = "#b5e3f2";
+  ctx.fillRect(0, 200, canvas.width, 60);
 }
 
 function dibujarPasto() {
   ctx.fillStyle = "#4CAF50";
-  ctx.fillRect(0, 280, canvas.width, 220);
+  ctx.fillRect(0, 260, canvas.width, 240);
 }
 
-// ===============================
-// NUBES (CÍRCULOS)
-// ===============================
+// ======================================
+// RÍO
+// ======================================
+function dibujarRio() {
+  ctx.fillStyle = "#7ec8e3";
+  ctx.beginPath();
+  ctx.moveTo(0, 300);
+  ctx.quadraticCurveTo(150, 260, 300, 320);
+  ctx.quadraticCurveTo(450, 380, canvas.width, 350);
+  ctx.lineTo(canvas.width, 420);
+  ctx.quadraticCurveTo(450, 450, 300, 400);
+  ctx.quadraticCurveTo(150, 360, 0, 380);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function dibujarReflejosRio() {
+  ctx.strokeStyle = "rgba(255,255,255,0.6)";
+  for (let i = 0; i < 6; i++) {
+    ctx.beginPath();
+    ctx.moveTo(40 + i * 80, 340 + i * 6);
+    ctx.lineTo(120 + i * 80, 350 + i * 6);
+    ctx.stroke();
+  }
+}
+
+// ======================================
+// NUBES
+// ======================================
 function dibujarNube(x, y) {
   ctx.fillStyle = "white";
   for (let i = 0; i < 5; i++) {
     ctx.beginPath();
-    ctx.arc(x + i * 20, y, 20, 0, Math.PI * 2);
+    ctx.arc(x + i * 20, y, 18, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
-// ===============================
+// ======================================
 // ÁRBOL
-// ===============================
+// ======================================
 function dibujarTronco() {
   ctx.fillStyle = "#8B4513";
-  ctx.fillRect(230, 180, 40, 120);
+  ctx.fillRect(240, 170, 40, 120);
 }
 
 function dibujarCopa() {
   ctx.fillStyle = "#f2a1c7";
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 14; i++) {
     ctx.beginPath();
-    ctx.arc(250 + Math.random() * 80 - 40, 160 + Math.random() * 60 - 30, 25, 0, Math.PI * 2);
+    ctx.arc(
+      260 + Math.random() * 90 - 45,
+      150 + Math.random() * 70 - 35,
+      25,
+      0,
+      Math.PI * 2
+    );
     ctx.fill();
   }
 }
 
-// ===============================
+// ======================================
 // FLORES
-// ===============================
+// ======================================
 function dibujarFlor(x, y) {
   ctx.fillStyle = "#ff69b4";
   for (let i = 0; i < 5; i++) {
     ctx.beginPath();
-    ctx.arc(x + Math.cos(i) * 6, y + Math.sin(i) * 6, 4, 0, Math.PI * 2);
+    ctx.arc(
+      x + Math.cos(i * 1.2) * 6,
+      y + Math.sin(i * 1.2) * 6,
+      4,
+      0,
+      Math.PI * 2
+    );
     ctx.fill();
   }
 
@@ -69,21 +107,24 @@ function dibujarFlores() {
   for (let i = 0; i < 20; i++) {
     dibujarFlor(
       Math.random() * canvas.width,
-      320 + Math.random() * 160
+      300 + Math.random() * 180
     );
   }
 }
 
-// ===============================
-// EJECUCIÓN
-// ===============================
+// ======================================
+// EJECUCIÓN DEL DIBUJO
+// ======================================
 dibujarCielo();
-dibujarAgua();
+dibujarAguaFondo();
 dibujarPasto();
+
+dibujarRio();
+dibujarReflejosRio();
 
 dibujarNube(60, 60);
 dibujarNube(200, 40);
-dibujarNube(350, 70);
+dibujarNube(360, 70);
 
 dibujarTronco();
 dibujarCopa();
