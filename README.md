@@ -61,15 +61,7 @@ canvas-examen-tema1/
 - Organizar correctamente un proyecto web con Git y GitHub.
 - Documentar el proyecto de forma clara y profesional.
 
----
 
-## Conclusiones
-
-El desarrollo de este proyecto permitió reforzar los conocimientos sobre la manipulación del elemento canvas mediante JavaScript, así como mejorar la organización de archivos y el control de versiones con GitHub.
-
-Además, se logró comprender la importancia de la planeación visual y el uso de figuras geométricas básicas para la construcción de escenas gráficas complejas sin depender de imágenes externas.
-
----
 
 **Autor:**  
 Moreno Trejo Diego de Jesús  
