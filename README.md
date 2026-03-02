@@ -7,10 +7,10 @@ Materia: Graficación por Computadora – Examen Tema 1
 
 ## Enlaces del Proyecto
 
-- 📁 Repositorio en GitHub:  
+- Repositorio en GitHub:  
   https://github.com/Extremo-cmd/canvas-examen-tema1
 
-- 🌐 Sitio Web (GitHub Pages):  
+- Sitio Web (GitHub Pages):  
   https://extremo-cmd.github.io/canvas-examen-tema1/
 
 ---
@@ -35,19 +35,21 @@ La escena está compuesta por múltiples figuras (líneas, círculos, rectángul
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 La organización de archivos del proyecto es la siguiente:
 
+```
 canvas-examen-tema1/
 │
-├── index.html # Archivo principal del proyecto
+├── index.html          # Archivo principal del proyecto
 │
 ├── js/
-│ └── main.js # Lógica del dibujo en Canvas
+│   └── main.js         # Lógica del dibujo en Canvas
 │
 └── img/
-└── imagen.png # Imagen de referencia
+    └── imagen.png      # Imagen de referencia
+```
 
 ---
 
