@@ -1,77 +1,91 @@
-// Obtener el canvas y su contexto
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// ================= FUNCIONES =================
-
-// Cielo
+// ===============================
+// FONDO
+// ===============================
 function dibujarCielo() {
-    ctx.fillStyle = "#87CEEB";
-    ctx.fillRect(0, 0, 400, 200);
+  ctx.fillStyle = "#87CEEB";
+  ctx.fillRect(0, 0, canvas.width, 200);
 }
 
-// Suelo
-function dibujarSuelo() {
-    ctx.fillStyle = "#228B22";
-    ctx.fillRect(0, 200, 400, 200);
+function dibujarAgua() {
+  ctx.fillStyle = "#9ad0ec";
+  ctx.fillRect(0, 200, canvas.width, 80);
 }
 
-// Sol
-function dibujarSol() {
+function dibujarPasto() {
+  ctx.fillStyle = "#4CAF50";
+  ctx.fillRect(0, 280, canvas.width, 220);
+}
+
+// ===============================
+// NUBES (CÍRCULOS)
+// ===============================
+function dibujarNube(x, y) {
+  ctx.fillStyle = "white";
+  for (let i = 0; i < 5; i++) {
     ctx.beginPath();
-    ctx.arc(320, 60, 30, 0, Math.PI * 2);
-    ctx.fillStyle = "yellow";
+    ctx.arc(x + i * 20, y, 20, 0, Math.PI * 2);
     ctx.fill();
+  }
 }
 
-// Casa
-function dibujarCasa() {
-    // Base
-    ctx.fillStyle = "#FF6347";
-    ctx.fillRect(120, 200, 100, 80);
+// ===============================
+// ÁRBOL
+// ===============================
+function dibujarTronco() {
+  ctx.fillStyle = "#8B4513";
+  ctx.fillRect(230, 180, 40, 120);
+}
 
-    // Techo
+function dibujarCopa() {
+  ctx.fillStyle = "#f2a1c7";
+  for (let i = 0; i < 12; i++) {
     ctx.beginPath();
-    ctx.moveTo(120, 200);
-    ctx.lineTo(170, 160);
-    ctx.lineTo(220, 200);
-    ctx.closePath();
-    ctx.fillStyle = "#8B0000";
+    ctx.arc(250 + Math.random() * 80 - 40, 160 + Math.random() * 60 - 30, 25, 0, Math.PI * 2);
     ctx.fill();
-
-    // Puerta
-    ctx.fillStyle = "#654321";
-    ctx.fillRect(160, 230, 20, 50);
+  }
 }
 
-// Árbol
-function dibujarArbol(x, y) {
-    // Tronco
-    ctx.fillStyle = "#8B4513";
-    ctx.fillRect(x, y, 20, 50);
-
-    // Copa (3 círculos)
+// ===============================
+// FLORES
+// ===============================
+function dibujarFlor(x, y) {
+  ctx.fillStyle = "#ff69b4";
+  for (let i = 0; i < 5; i++) {
     ctx.beginPath();
-    ctx.arc(x + 10, y - 10, 20, 0, Math.PI * 2);
-    ctx.arc(x - 5, y, 20, 0, Math.PI * 2);
-    ctx.arc(x + 25, y, 20, 0, Math.PI * 2);
-    ctx.fillStyle = "green";
+    ctx.arc(x + Math.cos(i) * 6, y + Math.sin(i) * 6, 4, 0, Math.PI * 2);
     ctx.fill();
+  }
+
+  ctx.fillStyle = "yellow";
+  ctx.beginPath();
+  ctx.arc(x, y, 3, 0, Math.PI * 2);
+  ctx.fill();
 }
 
-// ================= ESCENA PRINCIPAL =================
-
-function dibujarEscena() {
-    dibujarCielo();
-    dibujarSuelo();
-    dibujarSol();
-    dibujarCasa();
-
-    // Árboles
-    dibujarArbol(40, 220);
-    dibujarArbol(300, 230);
-    dibujarArbol(350, 225);
+function dibujarFlores() {
+  for (let i = 0; i < 20; i++) {
+    dibujarFlor(
+      Math.random() * canvas.width,
+      320 + Math.random() * 160
+    );
+  }
 }
 
-// Ejecutar dibujo
-dibujarEscena();
+// ===============================
+// EJECUCIÓN
+// ===============================
+dibujarCielo();
+dibujarAgua();
+dibujarPasto();
+
+dibujarNube(60, 60);
+dibujarNube(200, 40);
+dibujarNube(350, 70);
+
+dibujarTronco();
+dibujarCopa();
+
+dibujarFlores();
