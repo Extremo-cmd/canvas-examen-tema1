@@ -49,6 +49,7 @@ canvas-examen-tema1/
 │
 └── img/
     └── imagen.png      # Imagen de referencia
+    └── favicon.png     
 ```
 
 ---
