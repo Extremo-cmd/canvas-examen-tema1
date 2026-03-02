@@ -1,57 +1,67 @@
+/* GLOBAL */
 body {
-    background-color: #0f1923;
+    margin: 0;
+    background: radial-gradient(circle at top, #1b0033, #050014);
     color: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
-/* HEADER */
-.header {
-    background: linear-gradient(90deg, #ff4655, #0f1923);
-    padding: 20px;
+/* HERO */
+.hero {
+    padding: 40px 20px;
     text-align: center;
+    background: linear-gradient(90deg, #ff008c, #00f0ff);
+    color: #000;
 }
 
-.header h1 {
-    margin: 0;
-    font-weight: bold;
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
 }
 
-.header p {
-    margin: 0;
+.hero p {
+    font-size: 1rem;
     opacity: 0.8;
 }
 
 /* TARJETAS */
-.card-custom {
-    background-color: #1c252e;
-    border-radius: 10px;
-    padding: 15px;
+.card-retro {
+    background: rgba(20, 10, 40, 0.9);
+    border-radius: 15px;
+    padding: 20px;
     text-align: center;
+    box-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px rgba(0, 240, 255, 0.4);
 }
 
-.card-custom h4 {
+.card-retro h4 {
     margin-bottom: 15px;
+    color: #00f0ff;
 }
 
 /* CANVAS */
 canvas {
-    border: 2px solid #ff4655;
-    border-radius: 8px;
-    background-color: #000;
+    background: #000;
+    border-radius: 10px;
+    border: 2px solid #ff008c;
+    box-shadow: 0 0 20px rgba(255, 0, 140, 0.8);
 }
 
 /* IMAGEN */
-.card-custom img {
-    width: 100%;
-    border-radius: 8px;
-    border: 2px solid #444;
+.card-retro img {
+    border-radius: 10px;
+    border: 2px solid #00f0ff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
 }
 
 /* FOOTER */
-.footer {
-    background-color: #0a0f14;
-    text-align: center;
+.footer-retro {
+    margin-top: 50px;
     padding: 15px;
+    text-align: center;
     font-size: 0.9rem;
-    opacity: 0.8;
+    background: linear-gradient(90deg, #00f0ff, #ff008c);
+    color: #000;
 }
