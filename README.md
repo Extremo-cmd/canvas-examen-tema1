@@ -68,6 +68,6 @@ canvas-examen-tema1/
 
 ## 👤 Datos del Alumno
 - Nombre: Moreno Trejo Diego de Jesus
-- Materia: Graficación por Computadora
+- Materia: Graficación
 - Tema: Introducción a la Graficación por Computadora
 - Examen: Tema 1
