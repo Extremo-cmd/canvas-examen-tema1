@@ -1,5 +1,5 @@
-🎨 Proyecto Canvas 2D – Escenario Inspirado en Valorant
-Estudiante: Moreno Trejo Diego de Jesús 🎮  
+Proyecto Canvas 2D – Escenario Inspirado en Valorant
+Estudiante: Moreno Trejo Diego de Jesús   
 Carrera: Ingeniería en Sistemas Computacionales  
 Materia: Graficación por Computadora – Examen Tema 1  
 
