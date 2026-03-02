@@ -1,164 +1,120 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// ======================================
-// FONDO
-// ======================================
+// =======================
+// FONDO - CIELO
+// =======================
 function dibujarCielo() {
-  const gradiente = ctx.createLinearGradient(0, 0, 0, 200);
-  gradiente.addColorStop(0, "#9adcf7");
-  gradiente.addColorStop(1, "#87CEEB");
+  const gradiente = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  gradiente.addColorStop(0, "#ff6a5c");
+  gradiente.addColorStop(1, "#1f1f2e");
+
   ctx.fillStyle = gradiente;
-  ctx.fillRect(0, 0, canvas.width, 200);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function dibujarAguaFondo() {
-  ctx.fillStyle = "#b5e3f2";
-  ctx.fillRect(0, 200, canvas.width, 60);
-}
-
-function dibujarPasto() {
-  ctx.fillStyle = "#4CAF50";
-  ctx.fillRect(0, 260, canvas.width, 240);
-}
-
-// ======================================
-// COLINAS (INTEGRAN EL RÍO)
-// ======================================
-function dibujarColinaSuperior() {
-  ctx.fillStyle = "#5cb85c";
+// =======================
+// SOL
+// =======================
+function dibujarSol() {
+  ctx.fillStyle = "#ffd166";
   ctx.beginPath();
-  ctx.moveTo(0, 260);
-  ctx.quadraticCurveTo(200, 230, 400, 260);
-  ctx.quadraticCurveTo(550, 300, canvas.width, 260);
-  ctx.closePath();
+  ctx.arc(400, 120, 60, 0, Math.PI * 2);
   ctx.fill();
 }
 
-function dibujarColinaInferior() {
-  ctx.fillStyle = "#4CAF50";
-  ctx.beginPath();
-  ctx.moveTo(0, 380);
-  ctx.quadraticCurveTo(200, 420, 400, 380);
-  ctx.quadraticCurveTo(550, 350, canvas.width, 390);
-  ctx.lineTo(canvas.width, canvas.height);
-  ctx.lineTo(0, canvas.height);
-  ctx.closePath();
-  ctx.fill();
+// =======================
+// MONTAÑAS
+// =======================
+function dibujarMontanas() {
+  ctx.fillStyle = "#3a3a4f";
+
+  for (let i = 0; i < 3; i++) {
+    ctx.beginPath();
+    ctx.moveTo(i * 300, 260);
+    ctx.lineTo(150 + i * 300, 120);
+    ctx.lineTo(300 + i * 300, 260);
+    ctx.closePath();
+    ctx.fill();
+  }
 }
 
-// ======================================
+// =======================
 // RÍO
-// ======================================
+// =======================
 function dibujarRio() {
-  ctx.fillStyle = "#7ec8e3";
+  ctx.fillStyle = "#3aaed8";
   ctx.beginPath();
-  ctx.moveTo(0, 300);
-  ctx.quadraticCurveTo(150, 260, 300, 320);
-  ctx.quadraticCurveTo(450, 380, canvas.width, 350);
-  ctx.lineTo(canvas.width, 420);
-  ctx.quadraticCurveTo(450, 450, 300, 400);
-  ctx.quadraticCurveTo(150, 360, 0, 380);
+  ctx.moveTo(300, 450);
+  ctx.quadraticCurveTo(400, 300, 500, 450);
+  ctx.lineTo(600, 450);
+  ctx.quadraticCurveTo(450, 260, 300, 450);
   ctx.closePath();
   ctx.fill();
 }
 
-function dibujarReflejosRio() {
-  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+function reflejosRio() {
+  ctx.strokeStyle = "rgba(255,255,255,0.6)";
   for (let i = 0; i < 6; i++) {
     ctx.beginPath();
-    ctx.moveTo(50 + i * 80, 340 + i * 6);
-    ctx.lineTo(130 + i * 80, 350 + i * 6);
+    ctx.moveTo(330 + i * 20, 360 + i * 10);
+    ctx.lineTo(360 + i * 20, 360 + i * 10);
     ctx.stroke();
   }
 }
 
-// ======================================
-// NUBES
-// ======================================
-function dibujarNube(x, y) {
-  ctx.fillStyle = "white";
+// =======================
+// EDIFICIO CENTRAL
+// =======================
+function edificioCentral() {
+  ctx.fillStyle = "#222";
+  ctx.fillRect(350, 200, 100, 180);
+
+  ctx.fillStyle = "#ff4655";
+  ctx.fillRect(390, 230, 20, 40);
+  ctx.fillRect(390, 290, 20, 40);
+}
+
+// =======================
+// PLATAFORMA VALORANT
+// =======================
+function plataforma() {
+  ctx.fillStyle = "#2b2b3a";
+  ctx.beginPath();
+  ctx.arc(650, 380, 40, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.strokeStyle = "#ff4655";
   for (let i = 0; i < 5; i++) {
+    ctx.beginPath();
+    ctx.arc(650, 380, 20 + i * 4, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+}
+
+// =======================
+// NUBES
+// =======================
+function nube(x, y) {
+  ctx.fillStyle = "#fff";
+  for (let i = 0; i < 4; i++) {
     ctx.beginPath();
     ctx.arc(x + i * 20, y, 18, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
-// ======================================
-// ÁRBOL
-// ======================================
-function dibujarTronco() {
-  ctx.fillStyle = "#8B4513";
-  ctx.fillRect(240, 170, 40, 120);
-}
-
-function dibujarCopa() {
-  ctx.fillStyle = "#f2a1c7";
-  for (let i = 0; i < 14; i++) {
-    ctx.beginPath();
-    ctx.arc(
-      260 + Math.random() * 90 - 45,
-      150 + Math.random() * 70 - 35,
-      25,
-      0,
-      Math.PI * 2
-    );
-    ctx.fill();
-  }
-}
-
-// ======================================
-// FLORES
-// ======================================
-function dibujarFlor(x, y) {
-  ctx.fillStyle = "#ff69b4";
-  for (let i = 0; i < 5; i++) {
-    ctx.beginPath();
-    ctx.arc(
-      x + Math.cos(i * 1.2) * 6,
-      y + Math.sin(i * 1.2) * 6,
-      4,
-      0,
-      Math.PI * 2
-    );
-    ctx.fill();
-  }
-
-  ctx.fillStyle = "yellow";
-  ctx.beginPath();
-  ctx.arc(x, y, 3, 0, Math.PI * 2);
-  ctx.fill();
-}
-
-function dibujarFlores() {
-  for (let i = 0; i < 20; i++) {
-    dibujarFlor(
-      Math.random() * canvas.width,
-      300 + Math.random() * 180
-    );
-  }
-}
-
-// ======================================
-// EJECUCIÓN (ORDEN IMPORTANTE)
-// ======================================
+// =======================
+// EJECUCIÓN
+// =======================
 dibujarCielo();
-dibujarAguaFondo();
-
-dibujarPasto();
-dibujarColinaSuperior();
-
+dibujarSol();
+dibujarMontanas();
 dibujarRio();
-dibujarReflejosRio();
+reflejosRio();
+edificioCentral();
+plataforma();
 
-dibujarColinaInferior();
-
-dibujarNube(60, 60);
-dibujarNube(200, 40);
-dibujarNube(360, 70);
-
-dibujarTronco();
-dibujarCopa();
-
-dibujarFlores();
+nube(120, 80);
+nube(250, 60);
+nube(520, 90);
