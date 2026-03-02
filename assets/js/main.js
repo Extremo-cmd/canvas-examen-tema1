@@ -5,7 +5,10 @@ const ctx = canvas.getContext("2d");
 // FONDO
 // ======================================
 function dibujarCielo() {
-  ctx.fillStyle = "#87CEEB";
+  const gradiente = ctx.createLinearGradient(0, 0, 0, 200);
+  gradiente.addColorStop(0, "#9adcf7");
+  gradiente.addColorStop(1, "#87CEEB");
+  ctx.fillStyle = gradiente;
   ctx.fillRect(0, 0, canvas.width, 200);
 }
 
@@ -17,6 +20,31 @@ function dibujarAguaFondo() {
 function dibujarPasto() {
   ctx.fillStyle = "#4CAF50";
   ctx.fillRect(0, 260, canvas.width, 240);
+}
+
+// ======================================
+// COLINAS (INTEGRAN EL RÍO)
+// ======================================
+function dibujarColinaSuperior() {
+  ctx.fillStyle = "#5cb85c";
+  ctx.beginPath();
+  ctx.moveTo(0, 260);
+  ctx.quadraticCurveTo(200, 230, 400, 260);
+  ctx.quadraticCurveTo(550, 300, canvas.width, 260);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function dibujarColinaInferior() {
+  ctx.fillStyle = "#4CAF50";
+  ctx.beginPath();
+  ctx.moveTo(0, 380);
+  ctx.quadraticCurveTo(200, 420, 400, 380);
+  ctx.quadraticCurveTo(550, 350, canvas.width, 390);
+  ctx.lineTo(canvas.width, canvas.height);
+  ctx.lineTo(0, canvas.height);
+  ctx.closePath();
+  ctx.fill();
 }
 
 // ======================================
@@ -36,11 +64,11 @@ function dibujarRio() {
 }
 
 function dibujarReflejosRio() {
-  ctx.strokeStyle = "rgba(255,255,255,0.6)";
+  ctx.strokeStyle = "rgba(255,255,255,0.5)";
   for (let i = 0; i < 6; i++) {
     ctx.beginPath();
-    ctx.moveTo(40 + i * 80, 340 + i * 6);
-    ctx.lineTo(120 + i * 80, 350 + i * 6);
+    ctx.moveTo(50 + i * 80, 340 + i * 6);
+    ctx.lineTo(130 + i * 80, 350 + i * 6);
     ctx.stroke();
   }
 }
@@ -113,14 +141,18 @@ function dibujarFlores() {
 }
 
 // ======================================
-// EJECUCIÓN DEL DIBUJO
+// EJECUCIÓN (ORDEN IMPORTANTE)
 // ======================================
 dibujarCielo();
 dibujarAguaFondo();
+
 dibujarPasto();
+dibujarColinaSuperior();
 
 dibujarRio();
 dibujarReflejosRio();
+
+dibujarColinaInferior();
 
 dibujarNube(60, 60);
 dibujarNube(200, 40);
