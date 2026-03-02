@@ -1,120 +1,123 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-// =======================
-// FONDO - CIELO
-// =======================
-function dibujarCielo() {
-  const gradiente = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  gradiente.addColorStop(0, "#ff6a5c");
-  gradiente.addColorStop(1, "#1f1f2e");
-
-  ctx.fillStyle = gradiente;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+// =====================
+// CIELO
+// =====================
+function cielo() {
+    const g = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    g.addColorStop(0, "#ff4655");
+    g.addColorStop(1, "#0f1923");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-// =======================
+// =====================
 // SOL
-// =======================
-function dibujarSol() {
-  ctx.fillStyle = "#ffd166";
-  ctx.beginPath();
-  ctx.arc(400, 120, 60, 0, Math.PI * 2);
-  ctx.fill();
+// =====================
+function sol() {
+    ctx.fillStyle = "#ffd166";
+    ctx.beginPath();
+    ctx.arc(650, 100, 50, 0, Math.PI * 2);
+    ctx.fill();
 }
 
-// =======================
+// =====================
 // MONTAÑAS
-// =======================
-function dibujarMontanas() {
-  ctx.fillStyle = "#3a3a4f";
+// =====================
+function montanas() {
+    ctx.fillStyle = "#1c252e";
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * 250, 300);
+        ctx.lineTo(125 + i * 250, 150);
+        ctx.lineTo(250 + i * 250, 300);
+        ctx.closePath();
+        ctx.fill();
+    }
+}
 
-  for (let i = 0; i < 3; i++) {
+// =====================
+// RÍO
+// =====================
+function rio() {
+    ctx.fillStyle = "#3aaed8";
     ctx.beginPath();
-    ctx.moveTo(i * 300, 260);
-    ctx.lineTo(150 + i * 300, 120);
-    ctx.lineTo(300 + i * 300, 260);
+    ctx.moveTo(0, 380);
+    ctx.quadraticCurveTo(300, 300, 800, 380);
+    ctx.lineTo(800, 450);
+    ctx.lineTo(0, 450);
     ctx.closePath();
     ctx.fill();
-  }
 }
 
-// =======================
-// RÍO
-// =======================
-function dibujarRio() {
-  ctx.fillStyle = "#3aaed8";
-  ctx.beginPath();
-  ctx.moveTo(300, 450);
-  ctx.quadraticCurveTo(400, 300, 500, 450);
-  ctx.lineTo(600, 450);
-  ctx.quadraticCurveTo(450, 260, 300, 450);
-  ctx.closePath();
-  ctx.fill();
+function reflejos() {
+    ctx.strokeStyle = "rgba(255,255,255,0.5)";
+    for (let i = 0; i < 8; i++) {
+        ctx.beginPath();
+        ctx.moveTo(100 + i * 80, 380);
+        ctx.lineTo(140 + i * 80, 380);
+        ctx.stroke();
+    }
 }
 
-function reflejosRio() {
-  ctx.strokeStyle = "rgba(255,255,255,0.6)";
-  for (let i = 0; i < 6; i++) {
-    ctx.beginPath();
-    ctx.moveTo(330 + i * 20, 360 + i * 10);
-    ctx.lineTo(360 + i * 20, 360 + i * 10);
-    ctx.stroke();
-  }
+// =====================
+// EDIFICIOS
+// =====================
+function edificio(x) {
+    ctx.fillStyle = "#2b2b3a";
+    ctx.fillRect(x, 230, 80, 140);
+
+    ctx.fillStyle = "#ff4655";
+    for (let i = 0; i < 4; i++) {
+        ctx.fillRect(x + 30, 250 + i * 25, 20, 15);
+    }
 }
 
-// =======================
-// EDIFICIO CENTRAL
-// =======================
-function edificioCentral() {
-  ctx.fillStyle = "#222";
-  ctx.fillRect(350, 200, 100, 180);
-
-  ctx.fillStyle = "#ff4655";
-  ctx.fillRect(390, 230, 20, 40);
-  ctx.fillRect(390, 290, 20, 40);
-}
-
-// =======================
-// PLATAFORMA VALORANT
-// =======================
+// =====================
+// PLATAFORMA
+// =====================
 function plataforma() {
-  ctx.fillStyle = "#2b2b3a";
-  ctx.beginPath();
-  ctx.arc(650, 380, 40, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.strokeStyle = "#ff4655";
-  for (let i = 0; i < 5; i++) {
+    ctx.fillStyle = "#111";
     ctx.beginPath();
-    ctx.arc(650, 380, 20 + i * 4, 0, Math.PI * 2);
-    ctx.stroke();
-  }
-}
-
-// =======================
-// NUBES
-// =======================
-function nube(x, y) {
-  ctx.fillStyle = "#fff";
-  for (let i = 0; i < 4; i++) {
-    ctx.beginPath();
-    ctx.arc(x + i * 20, y, 18, 0, Math.PI * 2);
+    ctx.arc(400, 360, 45, 0, Math.PI * 2);
     ctx.fill();
-  }
+
+    ctx.strokeStyle = "#ff4655";
+    for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        ctx.arc(400, 360, 15 + i * 6, 0, Math.PI * 2);
+        ctx.stroke();
+    }
 }
 
-// =======================
+// =====================
+// NUBES
+// =====================
+function nube(x, y) {
+    ctx.fillStyle = "#ffffff";
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.arc(x + i * 25, y, 20, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// =====================
 // EJECUCIÓN
-// =======================
-dibujarCielo();
-dibujarSol();
-dibujarMontanas();
-dibujarRio();
-reflejosRio();
-edificioCentral();
+// =====================
+cielo();
+sol();
+montanas();
+rio();
+reflejos();
+
+edificio(150);
+edificio(300);
+edificio(500);
+
 plataforma();
 
-nube(120, 80);
-nube(250, 60);
+nube(100, 80);
+nube(300, 60);
 nube(520, 90);
